@@ -6,6 +6,7 @@ import java.util.List;
 
 import me.studio.kiegeszitok.*;
 import me.studio.manager.Manager;
+import me.studio.manager.vasarlas;
 
 public class Main {
 	
@@ -24,18 +25,12 @@ public class Main {
 
 		manager = new ArrayList<>();
 		
-		//Alapmanager
-		manager.add(new Basic());
+		new vasarlas();
 		
-		//Neni
-		manager.add(new Neni());
+		moduleloader();   
 		
 		
-		
-		
-		
-		//Véglegesités
-		manager.add(new FrameUpdater());
+		FrameUpdater();
 	}
 	
 	public static void click(){
@@ -46,6 +41,32 @@ public class Main {
 		
 	}
 	
+	private static void moduleloader(){
+		
+		//Alapmanager
+		manager.add(new Basic());
+				
+		//Neni
+		manager.add(new Neni());
+				
+				
+				
+				
+				
+		//Véglegesités
+		manager.add(new FrameUpdater());
+				
+	}
 	
+	public static void FrameUpdater(){
+		
+		System.out.println("Kukik: " + Main.kuki);
+		
+		gui gui = Main.gui;
+		gui.label.setText(new String("Sütik: " + Main.kuki).replace(".0", ""));
+		gui.neniField.setText(vasarlas.arak.Nagyi.darab() + "");
+		
+		
+	}
 	
 }

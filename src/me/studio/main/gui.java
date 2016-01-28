@@ -1,5 +1,6 @@
 package me.studio.main;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,15 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import me.studio.manager.Vasarlas;
-
-import java.awt.Font;
-import javax.swing.JTextField;
+import me.studio.manager.vasarlas;
 
 public class gui extends JFrame {
 
@@ -59,7 +57,7 @@ public class gui extends JFrame {
 		btnNni.setToolTipText("Ára: 10kuki, Bevétel: 1k/c");
 		btnNni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				vasarlas.vasarlas(vasarlas.arak.Nagyi);
 			}
 		});
 		btnNni.setBounds(524, 46, 89, 23);
