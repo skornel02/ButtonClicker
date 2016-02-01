@@ -12,6 +12,12 @@ public class Example extends Manager {
 		System.out.println("asd");
 		
 	}
+
+	@Override
+	public void Tick() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

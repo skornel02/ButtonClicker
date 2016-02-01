@@ -14,6 +14,12 @@ public class Basic extends Manager {
 	
 		
 	}
+
+	@Override
+	public void Tick() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

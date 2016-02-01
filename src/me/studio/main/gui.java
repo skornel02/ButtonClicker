@@ -21,13 +21,16 @@ public class gui extends JFrame {
 	private JPanel contentPane;
 	
 	public JLabel label; 
-	private JButton btnNni;
-	public JTextField neniField;
-
+	public JButton katapult;
+	public JTextField katapultF;
+	public JTextField CsigákF;
+	public JButton Csigák;
+	
 	/**
 	 * Create the frame.
 	 */
 	public gui() {
+		setResizable(false);
 		setTitle("Button Klikker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 856, 526);
@@ -47,27 +50,44 @@ public class gui extends JFrame {
 		btnNewButton.setBounds(0, 0, 514, 496);
 		contentPane.add(btnNewButton);
 		
-		label = new JLabel("Sütik: 0");
+		label = new JLabel("Gombok: 0");
 		label.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setBounds(524, 11, 309, 14);
 		contentPane.add(label);
 		
-		btnNni = new JButton("N\u00E9ni");
-		btnNni.setToolTipText("Ára: 10kuki, Bevétel: 1k/c");
-		btnNni.addActionListener(new ActionListener() {
+		katapult = new JButton("Katapult");
+		katapult.setToolTipText("Ára: 10kuki, Bevétel: 1k/c");
+		katapult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				vasarlas.vasarlas(vasarlas.arak.Nagyi);
 			}
 		});
-		btnNni.setBounds(524, 46, 89, 23);
-		contentPane.add(btnNni);
+		katapult.setBounds(524, 46, 89, 23);
+		contentPane.add(katapult);
 		
-		neniField = new JTextField();
-		neniField.setEditable(false);
-		neniField.setToolTipText("Ennyi van neked a nénibõl :O ");
-		neniField.setBounds(623, 47, 146, 20);
-		contentPane.add(neniField);
-		neniField.setColumns(10);
+		katapultF = new JTextField();
+		katapultF.setEditable(false);
+		katapultF.setToolTipText("Ennyi van neked a nénibõl :O ");
+		katapultF.setBounds(623, 47, 146, 20);
+		contentPane.add(katapultF);
+		katapultF.setColumns(10);
+		
+		Csigák = new JButton("Csig\u00E1k");
+		Csigák.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				vasarlas.vasarlas(vasarlas.arak.Csigák);
+			}
+		});
+		Csigák.setToolTipText("\u00C1ra: 200kuki, Bev\u00E9tel: 5k/c");
+		Csigák.setBounds(524, 80, 89, 23);
+		contentPane.add(Csigák);
+		
+		CsigákF = new JTextField();
+		CsigákF.setToolTipText("Ennyi van neked a n\u00E9nib\u0151l :O ");
+		CsigákF.setEditable(false);
+		CsigákF.setColumns(10);
+		CsigákF.setBounds(623, 81, 146, 20);
+		contentPane.add(CsigákF);
 	}
 }

@@ -14,6 +14,12 @@ public class FrameUpdater extends Manager {
 		Main.FrameUpdater();
 		
 	}
+
+	@Override
+	public void Tick() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

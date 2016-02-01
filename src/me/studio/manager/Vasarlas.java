@@ -18,6 +18,10 @@ public class vasarlas {
 		map.put("nenidarab", 0);
 		map.put("nenihozam", 1);
 		
+		map.put("csigakar", 200);
+		map.put("csigakdarab", 0);
+		map.put("csigakhozam", 5);
+		
 	}
 	
 	public static boolean vasarlas(arak fajta){
@@ -28,7 +32,7 @@ public class vasarlas {
 			
 			Main.kuki = Main.kuki - fajta.ar();
 			
-			float a = 10;
+			float a = 25;
 			float b = 100;
 			float c = fajta.ar();
 			
@@ -48,7 +52,8 @@ public class vasarlas {
 	
 	public static enum arak{
 		
-		Nagyi("neni", vasarlas.map.get("neniar") , vasarlas.map.get("nenidarab"), vasarlas.map.get("nenihozam"));
+		Nagyi("neni", vasarlas.map.get("neniar") , vasarlas.map.get("nenidarab"), vasarlas.map.get("nenihozam")),
+		Csigák("csigak", vasarlas.map.get("csigakar") , vasarlas.map.get("csigakdarab"), vasarlas.map.get("csigakhozam"));
 		
 		private int ar;
 		private int darab;
