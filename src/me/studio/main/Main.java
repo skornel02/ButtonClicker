@@ -1,32 +1,38 @@
 package me.studio.main;
 
-import java.awt.Frame;
 import java.util.ArrayList;
-import java.util.List;
 
 import me.studio.kiegeszitok.*;
-import me.studio.manager.Manager;
-import me.studio.manager.Ticker;
-import me.studio.manager.vasarlas;
+import me.studio.manager.*;
 
 public class Main {
 	
 	public static gui gui;
 	
 	public static double kuki;
+	public static int apm;
 	
-	public static ArrayList<Manager> manager;
+	public static ArrayList<Manager> clickevent;
+	public static ArrayList<Manager> tickevent;
+	
+	public static boolean kaphat;
 	
 	public static void main(String[] args) {
 		
 		Ticker.running = true;
 		
-		kuki = 0;
+		kaphat = true;
+		
+		apm = 0;
+		kuki = 1000 * 1000;
 		
 		gui = new gui();
 		gui.setVisible(true);
 
-		manager = new ArrayList<>();
+		clickevent = new ArrayList<>();
+		tickevent = new ArrayList<>();
+		
+		
 		
 		new vasarlas();
 		
@@ -41,32 +47,34 @@ public class Main {
 	
 	public static void click(){
 		
-		for(Manager a : manager){
+		for(Manager a : clickevent){
 			a.Click();
 		}
 		
 	}
 	
 	private static void moduleloader(){
+	
+		//Anti cheat
+		clickevent.add(new APM());
+		tickevent.add(new APM());
 		
 		//Alapmanager
-		manager.add(new Basic());
+		clickevent.add(new Basic());
+		
+		tickevent.add(new Basic());
 				
-		//Neni
-		manager.add(new Vasaroltak());
-				
-				
-				
-				
-				
+		//Vasaroltak
+		clickevent.add(new Vasaroltak());
+		tickevent.add(new Gyar());		
+		
 		//Véglegesités
-		manager.add(new FrameUpdater());
+		tickevent.add(new FrameUpdater());
 				
 	}
 	
 	public static void FrameUpdater(){
 		
-		System.out.println("Gombok: " + Main.kuki);
 		
 		gui gui = Main.gui;
 		gui.label.setText(new String("Gombok: " + Main.kuki).replace(".0", ""));

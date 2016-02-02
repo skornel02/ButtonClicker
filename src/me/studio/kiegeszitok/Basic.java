@@ -10,17 +10,22 @@ public class Basic extends Manager {
 	@Override
 	public void Click() {
 		
+		if(Main.kaphat){
 		Main.kuki = Main.kuki + alapkuki;
-	
+		}
 		
 	}
 
 	@Override
-	public void Tick() {
-		// TODO Auto-generated method stub
+	public void TickMS() {
+	}
+
+	@Override
+	public void TickS() {
 		
 	}
 	
 	
-
+	
+	
 }

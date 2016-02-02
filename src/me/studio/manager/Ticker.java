@@ -1,5 +1,7 @@
 package me.studio.manager;
 
+import me.studio.main.Main;
+
 public class Ticker {
 	
 	public static boolean running = false;
@@ -10,11 +12,12 @@ public class Ticker {
 		int s2 = 0;
 		
 		while(running){
-			if(s1 == 10){
+			if(s1 == 9){
 				s1 = 0;
-				if(s2 == 10){
+				stickms();
+				if(s2 == 9){
 					s2 = 0;
-					stick();
+					sticks();
 				}else{
 					s2++;
 				}
@@ -33,8 +36,15 @@ public class Ticker {
 		}
 	}
 	
-	public static void stick(){
-		System.out.println("1s tick");
+	public static void sticks(){
+		for(Manager a :Main.tickevent){
+			a.TickS();
+		}
 	}
-
+	
+	public static void stickms(){
+		for(Manager a :Main.tickevent){
+			a.TickMS();
+		}
+	}
 }

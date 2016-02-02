@@ -12,13 +12,21 @@ public class Vasaroltak extends Manager {
 	public void Click() {
 		
 		
-		Main.kuki = Main.kuki + (vasarlas.arak.Nagyi.darab() * vasarlas.arak.Nagyi.hozam);
-		Main.kuki = Main.kuki + (vasarlas.arak.Csigák.darab() * vasarlas.arak.Csigák.hozam);
+		if(Main.kaphat){
+			for(vasarlas.arak a : vasarlas.arak.values()){
+				Main.kuki = Main.kuki + (a.darab() * a.hozam);
+			}
+		}
+	}
+	
+	@Override
+	public void TickMS() {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void Tick() {
+	public void TickS() {
 		// TODO Auto-generated method stub
 		
 	}

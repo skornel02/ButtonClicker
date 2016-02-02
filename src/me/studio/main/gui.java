@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.LookAndFeel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -25,6 +26,7 @@ public class gui extends JFrame {
 	public JTextField katapultF;
 	public JTextField CsigákF;
 	public JButton Csigák;
+	public JButton Gyar;
 	
 	/**
 	 * Create the frame.
@@ -38,6 +40,8 @@ public class gui extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -68,7 +72,6 @@ public class gui extends JFrame {
 		
 		katapultF = new JTextField();
 		katapultF.setEditable(false);
-		katapultF.setToolTipText("Ennyi van neked a nénibõl :O ");
 		katapultF.setBounds(623, 47, 146, 20);
 		contentPane.add(katapultF);
 		katapultF.setColumns(10);
@@ -89,5 +92,15 @@ public class gui extends JFrame {
 		CsigákF.setColumns(10);
 		CsigákF.setBounds(623, 81, 146, 20);
 		contentPane.add(CsigákF);
+		
+		Gyar = new JButton("Gyár");
+		Gyar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg) {
+				me.studio.manager.Gyar.fejlesztes();
+			}
+		});
+		Gyar.setFont(new Font("Arial", Font.PLAIN, 13));
+		Gyar.setBounds(524, 443, 298, 43);
+		contentPane.add(Gyar);
 	}
 }

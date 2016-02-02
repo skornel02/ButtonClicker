@@ -9,12 +9,17 @@ public class Example extends Manager {
 	@Override
 	public void Click() {
 		
-		System.out.println("asd");
+	}
+
+
+	@Override
+	public void TickMS() {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void Tick() {
+	public void TickS() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -32,7 +32,7 @@ public class vasarlas {
 			
 			Main.kuki = Main.kuki - fajta.ar();
 			
-			float a = 25;
+			float a = 20;
 			float b = 100;
 			float c = fajta.ar();
 			
