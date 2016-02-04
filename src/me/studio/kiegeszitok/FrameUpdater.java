@@ -10,7 +10,7 @@ public class FrameUpdater extends Manager {
 	
 	@Override
 	public void Click() {
-		
+		Main.FrameUpdater();
 	}
 
 	@Override

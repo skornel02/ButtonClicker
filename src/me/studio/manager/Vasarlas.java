@@ -22,6 +22,10 @@ public class vasarlas {
 		map.put("csigakdarab", 0);
 		map.put("csigakhozam", 5);
 		
+		map.put("hidraulikaar", 10000);
+		map.put("hidraulikadarab", 0);
+		map.put("hidraulikahozam", 50);
+		
 	}
 	
 	public static boolean vasarlas(arak fajta){
@@ -52,19 +56,14 @@ public class vasarlas {
 	
 	public static enum arak{
 		
-		Nagyi("neni", vasarlas.map.get("neniar") , vasarlas.map.get("nenidarab"), vasarlas.map.get("nenihozam")),
-		Csigák("csigak", vasarlas.map.get("csigakar") , vasarlas.map.get("csigakdarab"), vasarlas.map.get("csigakhozam"));
+		Nagyi("neni" ),
+		Csigák("csigak" ),
+		Hidraulika("hidraulika");
 		
-		private int ar;
-		private int darab;
-		public int hozam;
 		public String neve;
 		 
-		arak(String neve, int ar, int darab, int hozam) {
+		arak(String neve) {
 			this.neve = neve;
-			this.ar = ar;
-			this.darab = darab;
-			this.hozam = hozam;
 		}
 		
 		public int ar(){
@@ -74,7 +73,12 @@ public class vasarlas {
 		public int darab(){
 			return vasarlas.map.get(neve + "darab");
 		}
-		
+		public int bevetel(){
+			return vasarlas.map.get(neve + "hozam");
+		}
+		public void setdarab(int x ){
+			vasarlas.map.put(neve + "darab", x);
+		}
 			
 	}
 		

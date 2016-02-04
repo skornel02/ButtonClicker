@@ -11,6 +11,9 @@ public class Main {
 	
 	public static double kuki;
 	public static int apm;
+	public static double apmend;
+	
+	public static boolean cheat = false;
 	
 	public static ArrayList<Manager> clickevent;
 	public static ArrayList<Manager> tickevent;
@@ -24,7 +27,8 @@ public class Main {
 		kaphat = true;
 		
 		apm = 0;
-		kuki = 1000 * 1000;
+		apmend = 0;
+		kuki = 0;
 		
 		gui = new gui();
 		gui.setVisible(true);
@@ -70,7 +74,14 @@ public class Main {
 		
 		//Véglegesités
 		tickevent.add(new FrameUpdater());
-				
+		clickevent.add(new FrameUpdater());
+		
+		tickevent.add(new Cheat());
+		
+		//MIBEAE import
+		tickevent.add(new MIBEAE());
+		clickevent.add(new MIBEAE());
+		
 	}
 	
 	public static void FrameUpdater(){
@@ -85,6 +96,10 @@ public class Main {
 		gui.Csigák.setToolTipText("Ára: " + vasarlas.arak.Csigák.ar()  + ", Bevétel: 5k/c");
 		gui.CsigákF.setText(vasarlas.arak.Csigák.darab() + "");
 		
+		gui.Hidraulika.setToolTipText("Ára: " + vasarlas.arak.Hidraulika.ar()  + ", Bevétel: 50k/c");
+		gui.HidraulikaF.setText(vasarlas.arak.Hidraulika.darab() + "");
+		
+		gui.APM.setText("CPS: " + new Integer((int) apmend));
 		
 	}
 	
