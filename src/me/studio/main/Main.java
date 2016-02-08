@@ -76,6 +76,7 @@ public class Main {
 		tickevent.add(new FrameUpdater());
 		clickevent.add(new FrameUpdater());
 		
+		//Csalás.
 		tickevent.add(new Cheat());
 		
 		//MIBEAE import
@@ -100,6 +101,7 @@ public class Main {
 		gui.HidraulikaF.setText(vasarlas.arak.Hidraulika.darab() + "");
 		
 		gui.APM.setText("CPS: " + new Integer((int) apmend));
+		gui.APM.setToolTipText(new Integer((int) apmend )+ " nyomtál a gombra (3s statisztika)");
 		
 	}
 	

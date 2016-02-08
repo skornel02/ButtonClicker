@@ -12,7 +12,18 @@ public class APM extends Manager {
 	
 	@Override
 	public void Click() {
-		Main.apm = Main.apm + 1;
+		
+		if( Main.apm > 10){
+			Main.kaphat = false;
+			Main.gui.Gomb.setEnabled(false);
+			return;
+			
+		}else{
+			Main.kaphat = true;
+			Main.gui.Gomb.setEnabled(true);
+			Main.apm = Main.apm + 1;
+			
+		}
 	}
 	
 	private static int aktiv = 0;
@@ -20,11 +31,12 @@ public class APM extends Manager {
 
 	@Override
 	public void TickMS() {
-		if( Main.apm > 10){
-			Main.kaphat = false;
-		}else{
+		
+		if(!( Main.apm > 10)){
+			Main.gui.Gomb.setEnabled(true);
 			Main.kaphat = true;
 		}
+			
 	}
 
 	@Override

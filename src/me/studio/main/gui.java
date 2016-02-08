@@ -8,18 +8,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LookAndFeel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.EmptyBorder;
 
+import com.alee.laf.WebLookAndFeel;
+
+import me.studio.kiegeszitok.MIBEAE;
 import me.studio.manager.vasarlas;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class gui extends JFrame {
 
@@ -34,6 +41,7 @@ public class gui extends JFrame {
 	public JLabel APM;
 	public JTextField HidraulikaF;
 	public JButton Hidraulika;
+	public JButton Gomb;
 	
 	/**
 	 * Create the frame.
@@ -44,18 +52,23 @@ public class gui extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 856, 545);
 		
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			System.out.println("Thats bullshit");
-			e.printStackTrace();
-		}
+		WebLookAndFeel.install();
+		
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		JMenu mnFontosDolgok = new JMenu("Fontos dolgok");
 		menuBar.add(mnFontosDolgok);
+		
+		JMenuItem mntmStatisztika = new JMenuItem("Statisztika");
+		mntmStatisztika.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Idõ: " + MIBEAE.aoeido + " Clickek: " + MIBEAE.aoclick, "Elveszetegetett idõd" , 1);
+			}
+		});
+		mnFontosDolgok.add(mntmStatisztika);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,16 +76,22 @@ public class gui extends JFrame {
 		
 		
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		Gomb = new JButton("ERROR");
+		Gomb.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
 				Main.click();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("resources\\icon.png"));
-		btnNewButton.setSelectedIcon(null);
-		btnNewButton.setBounds(0, 0, 514, 496);
-		contentPane.add(btnNewButton);
+		Gomb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		Gomb.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icon.png")));
+		Gomb.setSelectedIcon(null);
+		Gomb.setBounds(0, 0, 514, 496);
+		contentPane.add(Gomb);
 		
 		label = new JLabel("Gombok: 0");
 		label.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -81,7 +100,7 @@ public class gui extends JFrame {
 		contentPane.add(label);
 		
 		katapult = new JButton("Katapult");
-		katapult.setToolTipText("Ára: 10kuki, Bevétel: 1k/c");
+		katapult.setToolTipText("ERROR");
 		katapult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				vasarlas.vasarlas(vasarlas.arak.Nagyi);
@@ -102,12 +121,11 @@ public class gui extends JFrame {
 				vasarlas.vasarlas(vasarlas.arak.Csigák);
 			}
 		});
-		Csigák.setToolTipText("\u00C1ra: 200kuki, Bev\u00E9tel: 5k/c");
+		Csigák.setToolTipText("ERROR");
 		Csigák.setBounds(524, 80, 89, 23);
 		contentPane.add(Csigák);
 		
 		CsigákF = new JTextField();
-		CsigákF.setToolTipText("Ennyi van neked a n\u00E9nib\u0151l :O ");
 		CsigákF.setEditable(false);
 		CsigákF.setColumns(10);
 		CsigákF.setBounds(623, 81, 146, 20);
@@ -123,7 +141,8 @@ public class gui extends JFrame {
 		Gyar.setBounds(524, 443, 298, 43);
 		contentPane.add(Gyar);
 		
-		APM = new JLabel("APM: error");
+		APM = new JLabel("CPS: error");
+		APM.setToolTipText("ERROR");
 		APM.setBounds(524, 432, 57, 14);
 		contentPane.add(APM);
 		
@@ -133,12 +152,11 @@ public class gui extends JFrame {
 				vasarlas.vasarlas(vasarlas.arak.Hidraulika); 
 			}
 		});
-		Hidraulika.setToolTipText("\u00C1ra: 10000kuki, Bev\u00E9tel: 20k/c");
+		Hidraulika.setToolTipText("ERROR");
 		Hidraulika.setBounds(524, 114, 89, 23);
 		contentPane.add(Hidraulika);
 		
 		HidraulikaF = new JTextField();
-		HidraulikaF.setToolTipText("Ennyi van neked a n\u00E9nib\u0151l :O ");
 		HidraulikaF.setEditable(false);
 		HidraulikaF.setColumns(10);
 		HidraulikaF.setBounds(623, 115, 146, 20);

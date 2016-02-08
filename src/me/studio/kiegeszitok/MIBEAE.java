@@ -23,7 +23,6 @@ public class MIBEAE extends Manager {
 	@Override
 	public void Click() {
 		aoclick = aoclick + 1;
-		System.out.println("clickek: " + aoclick);
 	}
 
 
@@ -36,7 +35,6 @@ public class MIBEAE extends Manager {
 	@Override
 	public void TickS() {
 		aoeido = aoeido + 1;
-		System.out.println("ido: " + aoeido);
 		
 	}
 	
